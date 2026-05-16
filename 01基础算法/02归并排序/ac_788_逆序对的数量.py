@@ -1,12 +1,12 @@
 
 def solve(nums: list[int]) -> int:
 
-    def _merge_ssort(l, r: int):
+    def _merge_sort(l, r: int):
         if l == r:
             return 0
         mid: int = (l + r) // 2
-        left_count = _merge_ssort(l, mid)
-        right_count = _merge_ssort(mid + 1, r)
+        left_count = _merge_sort(l, mid)
+        right_count = _merge_sort(mid + 1, r)
 
         temp = []
         i, j = l, mid + 1
@@ -27,7 +27,7 @@ def solve(nums: list[int]) -> int:
 
         return left_count + right_count + count
 
-    return _merge_ssort(0, len(nums) - 1)
+    return _merge_sort(0, len(nums) - 1)
 
 
 def main():
